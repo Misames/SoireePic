@@ -1,0 +1,13 @@
+<div id="centre">
+    <form class="form-group" action="index.php?controleur=compte&action=connecter" method="POST">
+        <label for="login">Login :</label>
+        <input type="text" id="login" name="login" required><br />
+        <label for="mdp">Mot de Passe :</label>
+        <input type="password" id="mdp" name="mdp" required />
+        <img onclick="handleMdp()" id="eye" class="image-password"
+            src="https://image.flaticon.com/icons/png/32/2089/2089831.png" />
+        <br />
+        <input class="btn btn-primary" type="submit" value="Se Connecter" />
+    </form>
+    <a href="index.php?controleur=compte&action=afficherCreerCompte">Crée un compte</a>
+</div>

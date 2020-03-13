@@ -1,0 +1,23 @@
+<?php
+
+$action = $_REQUEST['action'];
+switch ($action) {
+    case 'afficherConnecter': {
+            include("vues/v_connexion.html");
+            break;
+        }
+    case 'connecter' : {
+            
+            break;
+        }
+    case 'afficherCreerCompte': {
+            include("vues/v_creer_compte.html");
+            break;
+        }
+    case 'creerCompte' : {
+            
+            break;
+        }
+}
+?>
+

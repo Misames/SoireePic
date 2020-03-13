@@ -1,0 +1,19 @@
+<?php 
+    class SoireeDAO
+    {
+        private $gestionConnexion;
+
+        public function __construct(){
+            $this->gestionConnexion = GestionConnexion::getConnexion();
+        }
+
+        public function chargerSoiree($idSoiree){
+            $soiree = array();
+            $sql = "SELECT * FROM soiree WHERE idSoiree=$idSoiree";
+            $res = $this->gestionConnexion->query($sql);
+            $soiree = $res->fetch();
+            return $soiree;
+        }
+    }
+    
+?>

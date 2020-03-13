@@ -1,0 +1,27 @@
+<?php
+
+class ListeSoireeDAO
+{
+    private $gestionConnexion;
+    private $soireeDAO;
+
+    public function __construct($soireeDAO)
+    {
+        $this->gestionConnexion = GestionConnexion::getConnexion();
+        $this->soireeDAO = $soireeDAO;
+    }
+
+    public function updateListe()
+    {
+        $sql = "SELECT idSoiree FROM soiree";
+        $res = $this->gestionConnexion->query($sql);
+        $tuples = $res->fetchAll();
+
+        $liste = array();
+        foreach ($tuples as $tuple) {
+            $liste[] = $this->soireeDAO->chargerSoiree($tuple["idSoiree"]);
+        }
+
+        return $liste;
+    }
+}

@@ -1,0 +1,23 @@
+/**
+ *
+ * @param {String} id de la soirée
+ * @param {String} nom de la soirée
+ */
+let handleModal = (id, nom) => {
+    let valeurmax = document.getElementById(`${id}`).getAttribute("data-valeurmax")
+    let idsoiree = document.getElementById(`${id}`).getAttribute("data-idsoiree")
+    document.getElementById("exampleModalLongTitle").innerHTML = "Rerservation de la soirée : " + nom
+    console.log("Nombre de place max : " + valeurmax + " numéro de soirée : " + idsoiree + " Nom de la soirée" + nom)
+}
+
+let handleConnexion = () => {
+    console.log("test")
+    let xhttp = new XMLHttpRequest()
+    xhttp.onreadystatechange = () => {
+        if (this.readyState === 4 && this.status === 200) {
+            document.getElementById("ModalPopup").innerHTML = this.responseText // a revoir
+        }
+    }
+    xhttp.open("GET", "connexion.php", true)
+    xhttp.send()
+}

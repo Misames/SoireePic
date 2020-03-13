@@ -1,0 +1,12 @@
+<div class="centre" align="center">
+    <form method="POST" action="controleur des comptes" >
+        <input type="text" placeholder="Nom" name="txtnom" maxlength=""/><br>
+        <input type="text" placeholder="Prénom" name="txtprenom" maxlength="" /><br>
+        <input type="date" placeholder="Date de naissance" name="datenaissance" /><br>
+        <input type="text" placeholder="Adresse" name="txtadresse"/><br>
+        <input type="email" placeholder="Mail" name="mail" /><br>
+        <input type="tel" placeholder="Numéro de Tél" name="tel"><br>
+        <input type="password" class="btn" name="password" placeholder="Mot de passe"><br>
+        <input type="submit" class="btn btn-primary" value="S'inscrire !"><br>
+    </form>
+</div>

@@ -1,0 +1,36 @@
+<div id="centre">
+<form action="index.php?controleur=gererSoiree&action=supprSoiree" method="post">    
+    <table>
+        <tr><td>Intitulé de soirée</td> <td> date </td>  <td>Nombre de place</td> <td> prix en € </td></tr>
+        <?php
+        foreach ($mesSoirées as $uneSoirée) {
+            ?><tr> 
+                    <td><?php echo $uneSoirée["nom"] ; ?></td>
+                    <td><?php echo $uneSoirée["date"] ; ?></td>
+                    <td> <?php echo $uneSoirée["nombreDePlace"] ; ?></td>
+                    <td><?php echo $uneSoirée["prixPlace"] ; ?></td>
+                    <td> <a href="index.php?controleur=gererSoiree&action=afficherModifierSoiree&id=<?php echo $uneSoirée["idSoiree"] ;?>">Modifier</a></td> 
+                    <td> <input value="<?php echo $uneSoirée["idSoiree"]; ?>" name="checkbox[]" type="checkbox" /> </td>
+                </tr>
+           <?php } ?>
+    </table>
+    <input type="submit" value='Supprimer' />
+</form>
+
+<form action="index.php?controleur=gererSoiree&action=ajouterSoiree" method="post">
+    <label for="nom">Nom :
+        <input type="text" name="nom" id="nom"/> </label>
+    <label for="date"> Date :
+        <input type="date" name="date" id="date"/>
+    </label>
+     <label for="nombrePlace"> Nombre de place :
+         <input type="number" name="nombrePlace" id="nombrePlace" />
+     </label>
+    <label for="prix"> Prix en €:
+        <input type="number" name="prix" id="prix" />
+    </label>
+    
+    <input type="submit" value="Ajouter" />
+</form>
+</div>
+

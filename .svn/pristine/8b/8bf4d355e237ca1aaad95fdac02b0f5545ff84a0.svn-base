@@ -1,0 +1,14 @@
+<div id="haut">
+    <h1>Bienvenue sur le site du Pic du Midi </h1>
+    <ul>
+        <li><a href="index.php?controleur=accueil">Accueil</a></li>
+        <?php if ($connexion->estConnecte()) { ?>
+        <li><a href="index.php?controleur=compte&action=deconnecter">Se Déconnecter</a></li>
+        <?php if($connexion->estAdmin()){ ?>
+        <li><a href="index.php?controleur=gererSoiree&action=afficherListeSoiree">Gérer soirées</a></li>
+        <?php } ?>
+        <?php } else {?>
+            <li><a href="index.php?controleur=compte&action=afficherConnecter">Se Connecter</a></li>
+        <?php } ?>
+    </ul>
+</div>

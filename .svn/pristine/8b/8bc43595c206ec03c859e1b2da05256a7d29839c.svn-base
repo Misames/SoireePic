@@ -1,0 +1,11 @@
+<?php
+
+class ReservationDAO
+{
+    private $gestionConnexion;
+
+    public function __construct()
+    {
+        $this->gestionConnexion = GestionConnexion::getConnexion();
+    }
+}

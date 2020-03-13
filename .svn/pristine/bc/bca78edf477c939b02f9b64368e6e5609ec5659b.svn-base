@@ -1,0 +1,13 @@
+<div class="centre">
+    <form method="POST" action="controleur des compte" align="center">
+        <label for=""></label>
+        <input type="text" placeholder="Nom" name="txtnom" maxlength=""/>
+        <input type="text" placeholder="Prénom" name="txtprenom" maxlength="" />
+        <input type="date" placeholder="Date de naissance" name="datenaissance" />
+        <input type="text" placeholder="Adresse" name="txtadresse"/>
+        <input type="email" placeholder="Mail" name="mail" />
+        <input type="tel" name="tel" placeholder="Numéro de Tél">
+        <input type="password" name="password" placeholder="Mot de passe">
+        <input type="submit" class="btn btn-primary" value="S'inscrire !">
+    </form>
+</div>

@@ -1,0 +1,129 @@
+<?php
+
+
+class PdoSoiree
+{
+
+    private static $monPdo;
+    private static $monPdoSoiree = null;
+
+    /**
+     * Constructeur privé, crée l'instance de PDO qui sera sollicitée
+     * pour toutes les méthodes de la classe
+     * Utilisation du design Patter Singleton
+     */
+
+    private function __construct() {
+        self::$monPdo = new PDO('mysql:host=localhost;dbname=soireeetoile;charset=utf8', 'root', 'toor');
+
+        self::$monPdo->query("SET CHARACTER SET utf8");
+    }
+
+    public function _destruct()
+    {
+        self::$monPdo = null;
+        self::$monPdoBdEtalage = null;
+    }
+
+    /**
+     * Fonction statique qui cree l'unique instance de la classe
+     *
+     * Appel : $instancePdobdEtalage = PdoBdvente::getPdoBdEtalage();
+     * @return l'unique objet de la classe PdoBdEtalage
+     */
+    public static function getPdoSoiree()
+    {
+        if (self::$monPdoSoiree == null) {
+            self::$monPdoSoiree = new PdoSoiree();
+        }
+        return self::$monPdoSoiree;
+    }
+
+    public static function seConnecter($login, $mdp)
+    {
+        $ordresql = "SELECT password FROM usager WHERE identifiant='$login'";
+        $resRequete = self::$monPdo->query($ordresql);
+
+        if ($resRequete == null) {
+            return false;
+        }
+
+        $leTuple = $resRequete->fetch();
+        $cryptedPassword = $leTuple["password"];
+
+        if (password_verify($mdp, $cryptedPassword)) {
+            //LOGIN
+            $ordresql = "SELECT idUsager, idType FROM usager WHERE identifiant='$login'";
+            $resRequete = self::$monPdo->query($ordresql);
+            $leTuple = $resRequete->fetch();
+            $id = $leTuple["idUsager"];
+            $idType = $leTuple["idType"];
+
+            $ordresql = "UPDATE usager SET estConnecte=1 WHERE identifiant='$login'";
+            $nb = self::$monPdo->exec($ordresql);
+
+            if ($nb > 0) {
+                setcookie("idUsager", $id);
+                setcookie("idType", $idType);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * affiche toutes les soirées enregistrer
+     */
+    public static function afficherListeSoireeDisponible()
+    {
+        $rsql = "SELECT reserver.idSoiree, nom, date, prixPlace, nombreDePlace, SUM(nbPlacePrise) AS nbplace
+                 FROM soiree
+                 INNER JOIN reserver ON soiree.idSoiree = reserver.idSoiree
+                 GROUP BY reserver.idSoiree
+                 ";
+        $resRequete = self::$monPdo->query($rsql);
+        $res = $resRequete->fetchAll();
+        return $res;
+    }
+
+    public static function afficherListeSoiree()
+    {
+        $rsql = "SELECT * FROM soiree";
+        $resRequete = self::$monPdo->query($rsql);
+        $res = $resRequete->fetchAll();
+        return $res;
+    }
+
+    public static function ajouterSoiree($date, $nom, $nombrePlace, $prix)
+    {
+        $ordresql = "INSERT INTO soiree VALUES(0, '$date', '$nom', $nombrePlace, $prix)";
+        $nb = self::$monPdo->exec($ordresql);
+        // Retourne vrai si l'insertion a eu lieu, sinon renvoie faux
+        return $nb > 0;
+    }
+
+    public static function recupererSoiree($id)
+    {
+        $ordresql = "SELECT * FROM soiree WHERE idSoiree='$id'";
+        $resRequete = self::$monPdo->query($ordresql);
+        $leTuple = $resRequete->fetch();
+        return $leTuple;
+    }
+
+    public static function modifierSoiree($id, $date, $nom, $nombrePlace, $prix)
+    {
+        $ordresql = "UPDATE soiree SET date='$date', nom='$nom', nombreDePlace='$nombrePlace', prixPlace='$prix' WHERE idSoiree=$id";
+        $nb = self::$monPdo->exec($ordresql);
+        return $nb > 0;
+    }
+
+    public static function supprimerSoiree($id)
+    {
+        $ordresql = "DELETE FROM soiree WHERE idSoiree=$id";
+        $nb = self::$monPdo->exec($ordresql);
+        return $nb > 0;
+    }
+}

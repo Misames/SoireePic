@@ -1,0 +1,29 @@
+<div id="centre">
+    <form method="POST" action="index.php?controleur=compte&action=creerCompte" class="form-group">
+        <!-- <div class="form-group"> -->
+            <label for="nom">Nom :</label>
+            <input id="nom" type="text" name="txtnom" maxlength="20" required><br/>
+
+            <label for="prenom">Prénom :</label>
+            <input id="prenom" type="text" name="txtprenom" maxlength="20" required /><br/>
+
+            <label for="date">Date de naissance :</label>
+            <input id="date" type="date" name="datenaissance" /><br/>
+
+            <label for="adresse">Adresse :</label>
+            <input id="adresse" type="text" name="txtadresse" /><br/>
+
+            <label for="mail">Mail :</label>
+            <input id="mail" type="email" name="mail" required /><br/>
+
+            <label for="tel">Téléphone :</label>
+            <input id="tel" type="tel" name="tel" pattern="0[1-9][0-9]{8}" required /><br/>
+
+
+            <label for="mdp">Mot de passe :</label>
+            <input id="mdp" type="password" name="password" required />
+            <img onclick="handleMdp();" id="eye" class="image-password" src="https://image.flaticon.com/icons/png/32/2089/2089831.png" />
+            <br/>
+        <input type="submit" class="btn btn-primary" value="S'inscrire !" /><br>
+    </form>
+</div

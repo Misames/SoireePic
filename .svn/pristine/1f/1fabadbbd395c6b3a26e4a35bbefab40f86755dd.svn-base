@@ -1,0 +1,33 @@
+<?php
+
+class ListeSoirees
+{
+    private $soirees;
+
+    private $listeSoireeDAO;
+
+    public function __construct($listeSoireeDAO)
+    {
+        $this->listeSoireeDAO = $listeSoireeDAO;
+        $this->updateListe();
+    }
+
+    public function updateListe()
+    {
+        $this->soirees = $this->listeSoireeDAO->updateListe();
+    }
+
+    public function getSoirees()
+    {
+        return $this->soirees;
+    }
+
+    public function rechercherSoiree($idSoiree)
+    {
+        foreach ($this->soirees as $soiree) {
+            if ($soiree->getId() == $idSoiree) {
+                return $soiree;
+            }
+        }
+    }
+}

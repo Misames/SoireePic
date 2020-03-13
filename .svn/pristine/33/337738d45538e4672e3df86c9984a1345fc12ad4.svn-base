@@ -1,0 +1,56 @@
+<center>
+    <h1>Liste des soirées à venir</h1>
+</center>
+<div id="centre">
+    <table align="center">
+        <tr>
+            <td>Intitulé de soirée</td>
+            <td> Date </td>
+            <td>Nombre de places restantes</td>
+            <td> Prix en € </td>
+        </tr>
+        <?php
+        $i = 0;
+        foreach ($listeSoirees->getSoirees() as $uneSoirée) {
+            if ($uneSoirée->getDate() >= date('Y-n-j')) {
+                $nb = $uneSoirée->getNombrePlaceRestante();
+                if ($uneSoirée->getNombrePlaceRestante() == 0) {
+                    $nb = $uneSoirée->getNombrePlace();
+                }
+                ?>
+                <tr>
+                    <td> <?= $uneSoirée->getNom() ?></td>
+                    <td> <?= $uneSoirée->getDate() ?></td>
+                    <td> <?= $nb ?></td>
+                    <td> <?= $uneSoirée->getPrix() ?></td>
+                    <?php if ($connexion->estConnecte()) { ?> <td class="noBorder"> <button onClick="handleModal('<?= $i ?>', '<?= $uneSoirée->getNom() ?>' )" id="<?= $i ?>" data-valeurMax="<?= $nb ?>" data-idSoiree="<?= $uneSoirée->getId() ?>" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong"> Réserver </a></button>
+                </tr> <?php } ?>
+    <?php }
+        $i++;
+    } ?>
+    </table>
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Réservation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="index.php?controleur=reservation&action=reserver" method="POST">
+                    <div class="modal-body">
+                        <label for="txt">Nombre de place</label>
+                        <input id="txt" type="number" min="0" max="0" name="nbplace" required />
+                        <input id="idSoiree" type="hidden" value="" name="idsoiree" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn btn-primary">Confirmer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

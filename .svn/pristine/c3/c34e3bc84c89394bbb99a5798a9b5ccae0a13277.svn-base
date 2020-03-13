@@ -1,0 +1,10 @@
+<div id="haut">
+    <h1>Bienvenue sur le site du Pic du Midi </h1>
+    <ul>
+        <li><a href="index.php?controleur=accueil">Accueil</a></li>
+        <li><a href="index.php?controleur=compte&action=afficherConnecter">Se Connecter</a></li>
+        <?php if (true) { // selon le type compte  ?>
+        <li><a href="index.php?controleur=gererSoiree&action=afficherListeSoiree">Gérer soirées</a></li>
+        <?php } ?>
+    </ul>
+</div>

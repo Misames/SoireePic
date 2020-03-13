@@ -1,0 +1,13 @@
+<?php
+
+switch ($action) {
+    case 'reserver':
+        $idsoiree = $_REQUEST["idsoiree"];
+        $connexion->reserverSoiree($idsoiree, $_COOKIE["CMSID"], $_REQUEST["nbplace"]);
+        header("Location: index.php");
+        break;
+    
+    default:
+        # code...
+        break;
+}

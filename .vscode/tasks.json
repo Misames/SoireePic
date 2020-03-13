@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "PC avec PHP",
+            "command": "php",
+            "type": "shell",
+            "args": [
+                "-S",
+                "localhost:8080"
+            ],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build"
+        },
+        {
+            "label": "PC sans PHP",
+            "type": "shell",
+            "command": "\"V:/uwamp/bin/php/php-7.2.7/php.exe\"",
+            "args": [
+                "-S",
+                "localhost:8080"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        }
+    ]
+}

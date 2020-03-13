@@ -1,0 +1,45 @@
+<?php
+
+
+class PdoSoiree {
+
+    private static $monPdo;
+    private static $monPdoSoiree = null;
+
+    /**
+     * Constructeur privé, crée l'instance de PDO qui sera sollicitée
+     * pour toutes les méthodes de la classe
+     * Utilisation du design Patter Singleton
+     */
+    private function __construct() {
+        self::$monPdo = new PDO('mysql:host=localhost;dbname=soireeetoile;charset=utf8', 'root', "toor");
+        self::$monPdo->query("SET CHARACTER SET utf8");
+    }
+
+    public function _destruct() {
+        self::$monPdo = null;
+        self::$monPdoBdEtalage = null;
+    }
+
+    /**
+     * Fonction statique qui cree l'unique instance de la classe
+     *
+     * Appel : $instancePdobdEtalage = PdoBdvente::getPdoBdEtalage();
+     * @return l'unique objet de la classe PdoBdEtalage
+     */
+    public static function getPdoSoiree() {
+        if (self::$monPdoSoiree == null) {
+            self::$monPdoSoiree = new PdoSoiree();
+        }
+        return self::$monPdoSoiree;
+    }
+
+    public static function getLeCommerçant($leNum, $leMdp) {
+        $ordresql = "select * from commerçant  where numeroCommerçant=" . $leNum . " and motDePasse='" . MD5($leMdp) . "' ";
+        $resultatRequete = self::$monPdo->query($ordresql);
+        $leTuple = $resultatRequete->fetch(PDO::FETCH_ASSOC);
+        return $leTuple;
+    }
+}
+
+?>

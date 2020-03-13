@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: Arial;
+  font-size: 1em;
+  color: gray;
+  height: 100vh;
+  width: 100vw;
+}
+
+/*
+ * Configuration de la boite
+ * centre et de ses composants
+ */
+#centre {
+  height: 75vh;
+  width: 100vw;
+  overflow: auto;
+  padding-top: 20px;
+  background-color: white;
+  text-align: center;
+}
+
+#centre h1 {
+  font-size: 1.5em;
+  color: gray;
+}
+
+#centre form {
+  font-size: 1.2rem;
+}
+
+#centre form input[type='text'],
+#centre form input[type='password'] {
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+/*
+ * Configuration des balises
+ * de structuration
+ */
+table {
+  font-size: 0.95em;
+  text-align: center;
+}
+
+.important {
+  color: red;
+}
+
+.image-password {
+  cursor: pointer;
+  max-width: 1.7rem;
+}

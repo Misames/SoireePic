@@ -1,0 +1,15 @@
+
+<?php
+
+$action = $_REQUEST["action"];
+
+switch ($action) {
+    case 'afficherListeSoiree':
+        $mesSoirées = $connexion->listeDesSoirées();
+        include("vues/v_affichersoiree.php");
+        break;
+    
+    default:
+        # code...
+        break;
+}

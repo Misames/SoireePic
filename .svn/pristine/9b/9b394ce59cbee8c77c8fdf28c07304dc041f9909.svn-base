@@ -1,0 +1,10 @@
+<div id="haut">
+    <h1>Bienvenue sur le site de Carmec (35)</h1>
+    <ul>
+        <li><a href="index.php?controleur=informer&action=voirActualités">Actualites</a></li>
+        <li><a href="index.php?controleur=informer&action=voirCarmec">Carmec en bref </a></li>
+        <li><a href="index.php?controleur=gererEtalages&action=demandeVisualisation">Consulter vos étalages</a></li>
+        <li><a href="index.php?controleur=gererEtalages&action=demandeCalculerCout">Calculer le cout de vos etalages</a></li>
+        <li><a href="index.php?controleur=accueil">Accueil</a></li>
+    </ul>
+</div>

@@ -1,0 +1,86 @@
+<?php 
+    class Soiree
+    {
+        private $id;
+        private $nom;
+        private $date;
+        private $nombrePlace;
+        private $prix;
+
+        private $soireeDAO;
+
+        public function __construct($id) {
+            $this->id = $id;
+
+            $this->soireeDAO = new SoireeDAO();
+
+            // Récupérer les valeurs de la BDD et les assigner dans les variables
+            $tableau = $this->soireeDAO->chargerSoiree($id);
+            $this->nom = $tableau["nom"];
+            $this->date = $tableau["date"];
+            $this->nombrePlace = $tableau["nombreDePlace"];
+            $this->prix = $tableau["prixPlace"];
+        }
+
+        public function getId(){
+            return $this->id;
+        }
+
+        public function getNom(){
+            return $this->nom;
+        }
+
+        public function setNom($nom){
+            $this->nom=$nom;
+        }
+
+        public function getDate(){
+            return $this->date;
+        }
+
+        public function setDate($date){
+            $this->date=$date;
+        }
+
+        public function getNombrePlace(){
+            return $this->nombrePlace;
+        }
+
+        public function setNombrePlace($nombrePlace){
+            $this->nombrePlace=$nombrePlace;
+        }
+
+        public function getPrix(){
+            return $this->prix;
+        }
+
+        public function setPrix($prix){
+            $this->prix=$prix;
+        }
+
+        public function ajouterSoiree(){
+            // Utilisation de la classe DAO
+            $ordresql = "INSERT INTO soiree VALUES(0, '$date', '$nom', $nombrePlace, $prix)";
+            $nb = $this->monPdo->exec($ordresql);
+            // Retourne vrai si l'insertion a eu lieu, sinon renvoie faux
+            return $nb > 0;
+        }
+
+        public function modifierSoiree(){
+            // Utilisation de la classe DAO
+            $ordresql = "UPDATE soiree SET date='$date', nom='$nom', nombreDePlace=$nombrePlace, prix=$prix WHERE idSoiree=$id";
+            $nb = $this->monPdo->exec($ordresql);
+            // Retourne vrai si la modification a eu lieu, sinon renvoie faux
+            return $nb > 0;
+        }
+
+        public function supprimerSoiree(){
+            // Utilisation de la classe DAO
+            $ordresql = "DELETE FROM soiree WHERE idSoiree=$id";
+            $nb = $this->monPdo->exec($ordresql);
+            // Retourne vrai si la suppression a eu lieu, sinon renvoie faux
+            return $nb > 0;
+        }
+    }
+    
+?>

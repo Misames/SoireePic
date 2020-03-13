@@ -1,0 +1,19 @@
+<?php 
+    class SoireeDAO
+    {
+        private $gestionConnexion;
+
+        public function __construct(){
+            $this->gestionConnexion = GestionConnexion::getConnexion();
+        }
+
+        public function chargerSoiree($idSoiree){
+            $soiree = array();
+            $sql = "SELECT * , SUM(nbPlacePrise) AS nbplace FROM soiree INNER JOIN reserver ON soiree.idSoiree = reserver.idSoiree WHERE soiree.idSoiree=$idSoiree GROUP BY reserver.idSoiree";
+            $res = $this->gestionConnexion->query($sql);
+            $soiree = $res->fetch();
+            return $soiree;
+        }
+    }
+    
+?>
