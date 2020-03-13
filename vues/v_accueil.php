@@ -17,7 +17,8 @@
                 $year = $dateInfo['year'];
                 $month = $dateInfo['month'];
                 $day = $dateInfo['day'];
-                if ($year <= date('Y') && $month <= (int)date('n') && $day <= (int)date('j') ) {
+                $i++;
+                if ($year >= date('Y') && $month >= (int) date('n') && $day >= (int) date('j')) {
                     $nb = $uneSoirée->getNombrePlaceRestante(); ?>
                     <tr>
                         <td><?= ++$i ?> </td>
@@ -26,7 +27,9 @@
                         <td><?= $nb ?></td>
                         <td><?= $uneSoirée->getPrix() ?></td>
                         <?php if ($connexion->estConnecte()) { ?> <td> <button <?php echo $nb == 0 ? "disabled" : "" ?> onClick="handleModal('<?= $i ?>', '<?= $uneSoirée->getNom() ?>')" id="<?= $i ?>" data-valeurMax="<?= $nb ?>" data-idSoiree="<?= $uneSoirée->getId() ?>" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Réserver</button>
-                    </tr> <?php } } } ?>
+                    </tr> <?php }
+                    }
+                } ?>
         </tbody>
     </table>
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
