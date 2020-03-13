@@ -13,9 +13,10 @@ class PdoSoiree
 
     private function __construct()
     {
-        self::$monPdo = new PDO('mysql:host=wizarsitfz666.mysql.db;dbname=wizarsitfz666;charset=utf8', 'wizarsitfz666', 'wxcde45PT');
-        //self::$monPdo = new PDO('mysql:host=localhost;dbname=soireeetoile;charset=utf8', 'root', 'root');
-        //self::$monPdo->query("SET CHARACTER SET utf8");
+        //connexion à la BDD sur le net (fonctionne pas)
+        //self::$monPdo = new PDO('mysql:host=cluster020.hosting.ovh.net;dbname=wizarsitfz666;charset=utf8', 'wizarsitfz666', 'wxcde45PT');
+        self::$monPdo = new PDO('mysql:host=localhost;dbname=soireeetoile;charset=utf8', 'root', 'root');
+        self::$monPdo->query("SET CHARACTER SET utf8");
     }
 
     public function _destruct()

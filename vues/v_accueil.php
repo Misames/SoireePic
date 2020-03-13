@@ -13,7 +13,11 @@
         <tbody>
             <?php $i = 0;
             foreach ($listeSoirees as $uneSoirée) {
-                if ($uneSoirée->getDate() >= date('Y-n-j')) {
+                $dateInfo = date_parse_from_format('Y/m/d', $uneSoirée->getDate());
+                $year = $dateInfo['year'];
+                $month = $dateInfo['month'];
+                $day = $dateInfo['day'];
+                if ($year <= date('Y') && $month <= (int)date('n') && $day <= (int)date('j') ) {
                     $nb = $uneSoirée->getNombrePlaceRestante(); ?>
                     <tr>
                         <td><?= ++$i ?> </td>
