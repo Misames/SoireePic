@@ -1,3 +1,0 @@
-Confirmer les reservations
-Afficher la liste des soirées reservés
-Trier par date les soirées

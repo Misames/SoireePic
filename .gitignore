@@ -1,8 +1,11 @@
+### Tâche ###
+task.txt
+
 ### SVN ###
-.svn/
+.svn
 
 ### VisualStudioCode ###
-.vscode/*
+.vscode
 
 ### VisualStudioCode Patch ###
 .history
