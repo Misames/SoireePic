@@ -25,9 +25,8 @@ class ListeComptes
     public function rechercherCompte($idCompte)
     {
         foreach ($this->comptes as $compte) {
-            if ($compte->getId() == $idCompte) {
+            if ($compte->getId() == $idCompte)
                 return $compte;
-            }
         }
     }
 }

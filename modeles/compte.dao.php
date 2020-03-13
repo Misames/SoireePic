@@ -12,9 +12,9 @@ class CompteDAO
 
     public static function getCompteDAO()
     {
-        if (is_null(self::$_instance)) {
+        if (is_null(self::$_instance))
             self::$_instance=new CompteDAO();
-        }
+
         return (self::$_instance);
     }
 

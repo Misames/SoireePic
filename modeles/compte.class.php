@@ -4,7 +4,6 @@ class Compte
 {
     private $id;
     private $libelle;
-
     private $compteDAO;
 
     public function __construct($id, $compteDAO)

@@ -18,9 +18,9 @@ class GestionConnexion
 
     public static function getConnexion()
     {
-        if (is_null(self::$_instance)) {
+        if (is_null(self::$_instance))
             self::$_instance = new GestionConnexion();
-        }
+
         return (self::$laConnexion);
     }
 

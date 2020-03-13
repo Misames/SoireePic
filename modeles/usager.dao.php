@@ -16,7 +16,7 @@ class UsagerDAO
     public function ajouterUsager($nom, $prenom, $dateNaissance, $adresse, $mail, $tel, $idType, $password, $identifiant)
     {
         $sql = "INSERT INTO usager (nom, prenom, dateNaissance, adresse, mail, tel, idType, password, identifiant) VALUE (0)";
-        $this->$gestionConnexion->query($sql);
+        $this->gestionConnexion->query($sql);
     }
 }
 ?>
