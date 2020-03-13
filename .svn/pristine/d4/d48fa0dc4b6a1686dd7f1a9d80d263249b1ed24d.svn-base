@@ -1,6 +1,0 @@
-<div id="haut">
-    <h1>Bienvenue sur le site du Pic du Midi </h1>
-    <ul>
-        <li><a href="index.php?controleur=accueil">deconnexion</a></li>
-    </ul>
-</div>

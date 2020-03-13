@@ -1,9 +1,0 @@
-<div id="centre">
-    <form atcion="index.php?controleur=compte&action=connecter" >
-        <label for="login">Login :</label>
-        <input type="text" id="login" name="login" /><br/>
-        <label for="mdp">Mot de Passe :</label>
-        <input type="password" id="mdp" name="mdp" />
-        <input type="submit" value="Se Connecter"/>
-    </form>
-</div>
