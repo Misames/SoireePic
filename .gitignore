@@ -5,6 +5,11 @@ test.php
 ### SVN ###
 .svn
 
+### NPM ###
+node_modules/
+package-lock.json
+package.json
+
 ### VisualStudioCode ###
 .vscode
 

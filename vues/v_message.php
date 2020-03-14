@@ -7,7 +7,7 @@
             break;
         case 'CONNEXION':
             ?>
-            <h1>Erreur de connexion.</h1> <br />
+            <h1>Erreur de connexion.</h1> <br>
             <p>Mauvais mot de passe ou identifiant. 😅</p>
             <a href="index.php?controleur=compte&action=afficherConnecter">retour à la page de connexion</a>
             <?php

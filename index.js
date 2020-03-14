@@ -25,3 +25,7 @@ let handleMdp = () => {
     eye.setAttribute('src', 'https://image.flaticon.com/icons/png/32/2089/2089831.png')
   }
 }
+
+ let test = obj => {
+  obj.innerHTML = marked('#' + obj.innerHTML);
+}
