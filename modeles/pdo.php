@@ -14,7 +14,7 @@ class PdoSoiree
     private function __construct()
     {
         //connexion à la BDD sur le net (fonctionne pas)
-        //self::$monPdo = new PDO('mysql:host=cluster020.hosting.ovh.net;dbname=wizarsitfz666;charset=utf8', 'wizarsitfz666', 'wxcde45PT');
+        //self::$monPdo = new PDO('mysql:host=10.6.110.142;dbname=wizarsitfz666;charset=utf8', 'wizarsitfz666', 'wxcde45PT');
         self::$monPdo = new PDO('mysql:host=localhost;dbname=soireeetoile;charset=utf8', 'root', 'root');
         self::$monPdo->query("SET CHARACTER SET utf8");
     }
@@ -41,6 +41,8 @@ class PdoSoiree
 
     public static function seConnecter($login, $mdp)
     {
+        $login = htmlentities($login);
+        $mdp = htmlentities($mdp);
         $ordresql = "SELECT password FROM usager WHERE identifiant='$login'";
         $resRequete = self::$monPdo->query($ordresql);
 

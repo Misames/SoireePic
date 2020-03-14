@@ -3,7 +3,6 @@
 class ListeComptes
 {
     private $comptes;
-
     private $listeCompteDAO;
 
     public function __construct($listeCompteDAO)

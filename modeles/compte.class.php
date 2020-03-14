@@ -6,6 +6,10 @@ class Compte
     private $libelle;
     private $compteDAO;
 
+    /**
+     * @param int $id
+     * @param CompteDAO $compteDAO
+     */
     public function __construct($id, $compteDAO)
     {
         $this->id = $id;

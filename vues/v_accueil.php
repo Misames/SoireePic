@@ -17,7 +17,6 @@
                 $year = $dateInfo['year'];
                 $month = $dateInfo['month'];
                 $day = $dateInfo['day'];
-                $i++;
                 if ($year >= date('Y') && $month >= (int) date('n') && $day >= (int) date('j')) {
                     $nb = $uneSoirée->getNombrePlaceRestante(); ?>
                     <tr>
