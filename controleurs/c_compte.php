@@ -24,13 +24,13 @@ switch ($action) {
             break;
         }
     case 'creerCompte': {
-           $nom = $_REQUEST["txtnom"];
-           $prenom = $_REQUEST["txtprenom"];
-           $dateNaissance = $_REQUEST["datenaissance"];
-           $adresse = $_REQUEST["txtadresse"];
-           $mail = $_REQUEST["mail"];
-           $tel = $_REQUEST["tel"];
-           $psw = $_REQUEST["password"];
+           $nom = htmlentities($_REQUEST["txtnom"]);
+           $prenom = htmlentities($_REQUEST["txtprenom"]);
+           $dateNaissance = htmlentities($_REQUEST["datenaissance"]);
+           $adresse = htmlentities($_REQUEST["txtadresse"]);
+           $mail = htmlentities($_REQUEST["mail"]);
+           $tel = htmlentities($_REQUEST["tel"]);
+           $psw = htmlentities($_REQUEST["password"]);
            // Ajouter la methode dans la classe
            // $connexion->ajouterCompte($nom, $prenom, $dateNaissance, $adresse, $mail, $tel, $psw);
            // $compteDAO->creerCompte($nom, $prenom, $ateNaissance, $adresse, $mail, $tel, $psw);
