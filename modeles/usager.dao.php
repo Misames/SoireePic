@@ -14,7 +14,7 @@ class UsagerDAO
      * Ajouter les '' pour chaque values
      * @param int nom
      */
-    public function ajouterUsager(int $nom, $prenom, $dateNaissance, $adresse, $mail, $tel, $idType, $password, $identifiant)
+    public function ajouterUsager($nom, $prenom, $dateNaissance, $adresse, $mail, $tel, $idType, $password, $identifiant)
     {
         $sql = "INSERT INTO usager (nom, prenom, dateNaissance, adresse, mail, tel, idType, password, identifiant) VALUE (0)";
         $this->gestionConnexion->query($sql);
