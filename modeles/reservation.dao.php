@@ -18,7 +18,7 @@ class ReservationDAO
      * @param string $nbPlace
      * @return bool
      */
-    public function reserverSoiree(string $idSoiree = "", string $idCompte = "", string $nbPlace = "")
+    public function reserverSoiree($idSoiree, $idCompte, $nbPlace)
     {
         $rsql = "INSERT INTO reserver (idUsager, idSoiree, nbPlacePrise) VALUE (1, $idSoiree, $nbPlace)";
         $res = $this->gestionConnexion->exec($rsql);

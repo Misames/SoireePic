@@ -1,5 +1,5 @@
 <div id="centre">
-    <form action="index.php=?controleur=gererSoiree&action=modifierSoiree&id=<?= $id; ?>" method="post">
+    <form action="index.php?controleur=gererSoiree&action=modifierSoiree&id=<?= $id; ?>" method="post">
         <label for="nom">Nom :
             <input type="text" name="nom" id="nom" value="<?= $nom ?>" /> </label>
         <label for="date"> Date :
